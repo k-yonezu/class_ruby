@@ -1,0 +1,1 @@
+../../../.ext/include/x86_64-darwin17/rb_mjit_min_header-2.6.0.h
