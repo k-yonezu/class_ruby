@@ -6238,7 +6238,7 @@ has_some_value:
 
 static VALUE
 ary_second(VALUE self){
-	return rb_ary_entry(self, );
+	return rb_ary_entry(self, 1);
 }
 
 	void
