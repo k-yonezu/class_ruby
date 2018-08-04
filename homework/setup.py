@@ -1,5 +1,5 @@
 from distutils.core import setup, Extension
-setup(name='practice',
+setup(name='spam',
         version='1.0',
-        ext_modules=[Extension('practice', ['practice.c'])]
+        ext_modules=[Extension('spam', ['spammodule.c'])]
 )

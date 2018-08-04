@@ -2,6 +2,18 @@
 
 //Cの方で作成してPythonで利用する関数はPyObjectを使う
 
+static PyObject *
+spam_system(PyObject *self, PyObject *args)
+{
+    const char *command;
+    int sts;
+
+    if (!PyArg_ParseTuple(args, "s", &command))
+        return NULL;
+    sts = system(command);
+    return Py_BuildValue("i", sts);
+}
+
 static PyObject*
 hello_world (PyObject *self, PyObject *args) {
 	printf("Hello_world\n");
@@ -46,6 +58,7 @@ pop (PyObject *self, PyObject *args){
 
 // メソッドの定義
 static PyMethodDef PracticeMethods[] = {
+    {"system",  spam_system, METH_VARARGS, "Execute a shell command."},
 	{"hello_world", (PyCFunction)hello_world, METH_NOARGS, "practice1: hello_world"},
 	{"push", (PyCFunction)push, METH_VARARGS, "practice2: push"},
 	{"pop", (PyCFunction)pop, METH_VARARGS, "practice3: pop"},
